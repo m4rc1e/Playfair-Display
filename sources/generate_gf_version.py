@@ -23,7 +23,7 @@ def update_vert_metrics(ttfont):
     ttfont['OS/2'].sTypoDescender = -251
     ttfont['OS/2'].sTypoLineGap = 0
 
-    ttfont['OS/2'].usWinAscent = 1072
+    ttfont['OS/2'].usWinAscent = 1159
     ttfont['OS/2'].usWinDescent = 251
 
 
@@ -34,17 +34,18 @@ def main():
     ttf_dir = os.path.join(fonts_dir, 'TTF')
     gf_ttf_dir = os.path.join(fonts_dir, 'GF_TTF')
 
-    print 'Copying fonts to gf_ttf_dir'
+    print('Copying fonts to gf_ttf_dir')
     source_fonts = glob(ttf_dir + '/*.ttf')
     if not os.path.isdir(gf_ttf_dir):
         os.mkdir(gf_ttf_dir)
 
-    print 'Changing upm and setting vert metrics'
+    print('Changing upm and setting vert metrics')
     ttfonts = [TTFont(f) for f in source_fonts]
-    map(update_upm, ttfonts)
-    map(update_vert_metrics, ttfonts)
+    for ttfont in ttfonts:
+        update_upm(ttfont)
+        update_vert_metrics(ttfont)
 
-    print 'Saving fonts'
+    print('Saving fonts')
     for ttfont, path in zip(ttfonts, source_fonts):
         dest_filename = os.path.basename(path)
         dest_path = os.path.join(gf_ttf_dir, dest_filename)
