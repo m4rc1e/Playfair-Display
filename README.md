@@ -20,7 +20,27 @@ Play­fair Dis­play comes in three weights and two styles, includ­ing small-ca
 
 Go to **[Google Web­fonts to use Play­fair Dis­play as a web­font](http://www.google.com/fonts/specimen/Playfair+Display)**. Spe­cial fonts con­tain­ing small-cap glyphs in the place of the lower­case glyphs have also been put on Google Web­fonts. Use these fonts for true small-caps in browsers without Open­Type cap­ab­il­it­ies. You do not need to down­load these fonts as the small-caps are already in Play­fair Dis­play proper.
 
-Play­fair Dis­play is pub­lished under the [SIL Open Font License Version 1.1](https://github.com/clauseggers/Playfair-Display/blob/master/OFL.txt), grant­ing you license to use the fonts free of charge, and enables you to extend & modify the fam­ily should you wish to. The com­plete source-files are avail­able in this repository.
+## Building
+
+Fonts are built automatically by GitHub Actions - take a look in the "Actions" tab for the latest build.
+
+If you particularly want to build fonts manually on your own computer, you will need to install the [`yq` utility](https://github.com/mikefarah/yq). On OS X with Homebrew, type `brew install yq`; on Linux, try `snap install yq`; if all else fails, try the instructions on the linked page.
+
+Then:
+
+* `make build` will produce font files.
+* `make test` will run [FontBakery](https://github.com/googlefonts/fontbakery)'s quality assurance tests.
+* `make proof` will generate HTML proof files.
+
+## License
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at
+http://scripts.sil.org/OFL
+
+## Repository Layout
+
+This font repository structure is inspired by [Unified Font Repository v0.3](https://github.com/unified-font-repository/Unified-Font-Repository), modified for the Google Fonts workflow.
 
 ## Supported languages
 
